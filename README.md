@@ -2,6 +2,7 @@
 
 Live URL: 
 
+https://aescobar73.github.io/Password_generator/
 
 
 Accepted Criteria
