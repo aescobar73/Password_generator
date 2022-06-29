@@ -3,7 +3,7 @@
 var generateBtn = document.querySelector("#generate");
 
 
-function generatePassword(){
+function generatePassword() {
 
   var lowAlphabet = ['a','b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
   var capAlphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' ]
@@ -14,14 +14,16 @@ function generatePassword(){
 
 
   var psLength = prompt("How long do you want the password to be?");
+
     if(psLength > 8 && psLength < 128) {
+
       var wantAlpha = confirm("Do you want the password to contain lower case letters from the alphabet?");
       var capitalAlpha = confirm("Do you want the password to contain capital case letters from the alphabet?");
       var wantNumbers = confirm("Do you want the password to contain numbers?");
       var wantsymbols = confirm("Do you want the password to contain symbols?");
-      
-
       var randomGenerator = [];
+      var newPassword = [];
+
 
 
       if(wantAlpha) randomGenerator = randomGenerator.concat(lowAlphabet);
@@ -29,30 +31,26 @@ function generatePassword(){
       if(wantNumbers) randomGenerator = randomGenerator.concat(numbers);
       if(wantsymbols) randomGenerator = randomGenerator.concat(symbols);
       
-      var newPassword = [];
+      
 
       for(var i=0; i<psLength; i++) {
         var randomCode = getRandomCode(randomGenerator.length)
         var randomCharacters = randomGenerator[randomCode];
-        newPassword.push(randomGenerator[randomCode]);
-      }
+        newPassword.push(randomGenerator[randomCode]);}
       return newPassword.join(''); 
       
-    }
+}
 
-    else {alert("Invalid length, choose between 8 and 128 characters");
-  return ; 
+      else {alert("Invalid length, choose between 8 and 128 characters");
+        return ; 
   }
 
 }
 
 
-  function getRandomCode(all) {
-    return Math.floor(Math.random() * Math.floor(all));
+      function getRandomCode(all) {
+        return Math.floor(Math.random() * Math.floor(all));
   }
-
-
-
 
 
 
